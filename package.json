@@ -1,0 +1,24 @@
+{
+  "name": "maibe",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "typings": "dist/index.d.ts",
+  "scripts": {
+    "build": "rm -rf ./dist && ./node_modules/.bin/tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Riim/maibe.git"
+  },
+  "author": "Dmitry Vibe",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Riim/maibe/issues"
+  },
+  "homepage": "https://github.com/Riim/maibe#readme",
+  "devDependencies": {
+    "typescript": "^2.3.4"
+  }
+}
