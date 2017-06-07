@@ -35,6 +35,7 @@ var Just = (function () {
     };
     Just.prototype.forEach = function (f) {
         f(this._value);
+        return this;
     };
     Just.prototype.map = function (f) {
         return maybe(f(this._value));
@@ -88,7 +89,9 @@ var Nothing = (function () {
     Nothing.prototype.isNothing = function () {
         return true;
     };
-    Nothing.prototype.forEach = function (f) { };
+    Nothing.prototype.forEach = function (f) {
+        return this;
+    };
     Nothing.prototype.map = function (f) {
         return this;
     };

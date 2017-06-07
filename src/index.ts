@@ -44,8 +44,9 @@ export class Just<T> {
 		return false;
 	}
 
-	forEach(f: (v: T) => void) {
+	forEach(f: (v: T) => void): TMaybe<T> {
 		f(this._value);
+		return this;
 	}
 
 	map<U>(f: (v: T) => U): TMaybe<U> {
@@ -112,7 +113,9 @@ export class Nothing<T> {
 		return true;
 	}
 
-	forEach(f: (v: T) => void) {}
+	forEach(f: (v: T) => void): TMaybe<T> {
+		return this;
+	}
 
 	map<U>(f: (v: T) => U): TMaybe<U> {
 		return this as any;
