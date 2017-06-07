@@ -1,8 +1,8 @@
 {
   "name": "maibe",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "scripts": {
     "build": "rm -rf ./dist && ./node_modules/.bin/tsc",
