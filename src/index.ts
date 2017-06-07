@@ -27,7 +27,7 @@ function eq(a: any, b: any): boolean {
 	return false;
 }
 
-export type Maybe<T> = Just<T> | Nothing<T>;
+export type TMaybe<T> = Just<T> | Nothing<T>;
 
 export class Just<T> {
 	readonly _value: T;
@@ -48,15 +48,15 @@ export class Just<T> {
 		f(this._value);
 	}
 
-	map<U>(f: (v: T) => U): Maybe<U> {
+	map<U>(f: (v: T) => U): TMaybe<U> {
 		return maybe(f(this._value));
 	}
 
-	flatMap<U>(f: (v: T) => Maybe<U>): Maybe<U> {
+	flatMap<U>(f: (v: T) => TMaybe<U>): TMaybe<U> {
 		return f(this._value);
 	}
 
-	filter(p: (v: T) => boolean): Maybe<T> {
+	filter(p: (v: T) => boolean): TMaybe<T> {
 		return p(this._value) ? this : nothing;
 	}
 
@@ -68,11 +68,11 @@ export class Just<T> {
 		return this._value;
 	}
 
-	orElse<U>(maybe: Maybe<U>): Maybe<T | U> {
+	orElse<U>(maybe: TMaybe<U>): TMaybe<T | U> {
 		return this;
 	}
 
-	orOf<U>(value: U): Maybe<T | U> {
+	orOf<U>(value: U): TMaybe<T | U> {
 		return this;
 	}
 
@@ -114,15 +114,15 @@ export class Nothing<T> {
 
 	forEach(f: (v: T) => void) {}
 
-	map<U>(f: (v: T) => U): Maybe<U> {
+	map<U>(f: (v: T) => U): TMaybe<U> {
 		return this as any;
 	}
 
-	flatMap<U>(f: (v: T) => Maybe<U>): Maybe<U> {
+	flatMap<U>(f: (v: T) => TMaybe<U>): TMaybe<U> {
 		return this as any;
 	}
 
-	filter(p: (v: T) => boolean): Maybe<T> {
+	filter(p: (v: T) => boolean): TMaybe<T> {
 		return this;
 	}
 
@@ -134,11 +134,11 @@ export class Nothing<T> {
 		return value;
 	}
 
-	orElse<U>(maybe: Maybe<U>): Maybe<T | U> {
+	orElse<U>(maybe: TMaybe<U>): TMaybe<T | U> {
 		return maybe;
 	}
 
-	orOf<U>(value: U): Maybe<T | U> {
+	orOf<U>(value: U): TMaybe<T | U> {
 		return maybe<U>(value);
 	}
 
@@ -157,6 +157,6 @@ export class Nothing<T> {
 
 export let nothing = new Nothing<any>();
 
-export function maybe<T>(value: T | null | undefined): Maybe<T> {
+export function maybe<T>(value: T | null | undefined): TMaybe<T> {
 	return value == null ? nothing : new Just(value);
 }
