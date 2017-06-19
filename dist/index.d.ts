@@ -5,7 +5,7 @@ export declare class Just<T> {
     isJust(): boolean;
     isNothing(): boolean;
     forEach(f: (v: T) => void): TMaybe<T>;
-    map<U>(f: (v: T) => U): TMaybe<U>;
+    map<U>(f: (v: T) => U | null | undefined): TMaybe<U>;
     flatMap<U>(f: (v: T) => TMaybe<U>): TMaybe<U>;
     filter(p: (v: T) => boolean): TMaybe<T>;
     just(err?: any): T;
@@ -22,7 +22,7 @@ export declare class Nothing<T> {
     isJust(): boolean;
     isNothing(): boolean;
     forEach(f: (v: T) => void): TMaybe<T>;
-    map<U>(f: (v: T) => U): TMaybe<U>;
+    map<U>(f: (v: T) => U | null | undefined): TMaybe<U>;
     flatMap<U>(f: (v: T) => TMaybe<U>): TMaybe<U>;
     filter(p: (v: T) => boolean): TMaybe<T>;
     just(err?: any): T;

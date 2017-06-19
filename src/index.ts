@@ -49,7 +49,7 @@ export class Just<T> {
 		return this;
 	}
 
-	map<U>(f: (v: T) => U): TMaybe<U> {
+	map<U>(f: (v: T) => U | null | undefined): TMaybe<U> {
 		return maybe(f(this._value));
 	}
 
@@ -117,7 +117,7 @@ export class Nothing<T> {
 		return this;
 	}
 
-	map<U>(f: (v: T) => U): TMaybe<U> {
+	map<U>(f: (v: T) => U | null | undefined): TMaybe<U> {
 		return this as any;
 	}
 
