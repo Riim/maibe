@@ -1,6 +1,4 @@
-let is: (a: any, b: any) => boolean = (Object as any).is || function(a, b) {
-	return a === b ? a !== 0 || 1 / a == 1 / b : a != a && b != b;
-};
+import { is } from '@riim/is';
 
 function eq(a: any, b: any): boolean {
 	if (is(a, b)) {
@@ -15,7 +13,7 @@ function eq(a: any, b: any): boolean {
 	}
 
 	if (a.length !== undefined && a.length === b.length) {
-		for (var i = 0, l = a.length; i < l; i++) {
+		for (let i = 0, l = a.length; i < l; i++) {
 			if (!eq(a[i], b[i])) {
 				return false;
 			}

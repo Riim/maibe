@@ -1,10 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var is = Object.is || function (a, b) {
-    return a === b ? a !== 0 || 1 / a == 1 / b : a != a && b != b;
-};
+var is_1 = require("@riim/is");
 function eq(a, b) {
-    if (is(a, b)) {
+    if (is_1.is(a, b)) {
         return true;
     }
     if (a && typeof a.equals == 'function') {
@@ -23,7 +21,7 @@ function eq(a, b) {
     }
     return false;
 }
-var Just = (function () {
+var Just = /** @class */ (function () {
     function Just(value) {
         this._value = value;
     }
@@ -77,7 +75,7 @@ function just(value) {
     return new Just(value);
 }
 exports.just = just;
-var Nothing = (function () {
+var Nothing = /** @class */ (function () {
     function Nothing() {
         if (exports.nothing) {
             throw new TypeError('Nothing is a singleton');
